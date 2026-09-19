@@ -1,0 +1,8 @@
+name: buggy-todo
+services:
+  - name: api
+    dockerfile_path: Dockerfile
+    source_dir: /
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    http_port: 8080
