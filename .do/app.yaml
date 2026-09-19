@@ -2,7 +2,7 @@ name: buggy-todo
 services:
   - name: api
     github:
-      repo: vasilyprokopov/buggy-todo
+      repo: DO-Solutions/buggy-todo
       branch: main
       deploy_on_push: true
     dockerfile_path: Dockerfile
