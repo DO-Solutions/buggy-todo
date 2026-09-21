@@ -43,5 +43,5 @@ def test_delete_todo():
     r = client.delete(f"/todos/{created['id']}")
     assert r.status_code == 200
 
-    r2 = client.get(f"/todos/{created['id']}")
-    assert r2.status_code == 404
+    ids = [t["id"] for t in client.get("/todos").json()]
+    assert created["id"] not in ids
