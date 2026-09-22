@@ -26,7 +26,7 @@ def list_todos():
 @app.post("/todos")
 def create_todo(todo: TodoIn):
     global next_id
-    new_todo = {"id": next_id, "title": todo.title, "done": False}
+    new_todo = {"id": next_id, "title": todo.title, "done": todo.done}
     todos.append(new_todo)
     next_id += 1
     return new_todo
