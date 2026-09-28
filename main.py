@@ -41,6 +41,6 @@ def get_todo(todo_id: int):
 def delete_todo(todo_id: int):
     for i, t in enumerate(todos):
         if t["id"] == todo_id:
-            del todos[i - 1]
+            del todos[i]
             return {"deleted": todo_id}
     return {"deleted": todo_id}
