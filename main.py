@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 
@@ -34,7 +34,10 @@ def create_todo(todo: TodoIn):
 
 @app.get("/todos/{todo_id}")
 def get_todo(todo_id: int):
-    return [t for t in todos if t["id"] == todo_id][0]
+    todo = next((t for t in todos if t["id"] == todo_id), None)
+    if todo is None:
+        raise HTTPException(status_code=404, detail="Todo not found")
+    return todo
 
 
 @app.delete("/todos/{todo_id}")
